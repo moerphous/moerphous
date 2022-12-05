@@ -1,4 +1,5 @@
 import Header from "../../components/Header";
+import Banner from "../../components/Banner";
 import Footer from "../../components/Footer";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -27,16 +28,16 @@ const Landing = (handleDrawerToggle) => {
           alignItems: "center",
           color: "grey",
           backgroundColor: "rgba(33,36,40,1)",
-          paddingLeft: { md: "250px", sm: "100px", xs: "150px" },
+          //paddingLeft: { md: "250px", sm: "100px", xs: "150px" },
           display: "flex",
-          paddingTop: "1000px",
+          paddingTop: "250px",
+          paddingBottom: "104px",
           background: `url(${"./images/background.jpg"}) no-repeat center center fixed`,
           backgroundSize: "cover",
         }}
       >
-        >
+        <Banner />
       </Box>
-
       <Box
         component="section"
         sx={{
@@ -51,7 +52,7 @@ const Landing = (handleDrawerToggle) => {
         <Container
           maxWidth="lg"
           sx={{
-            alignItems: "center",
+            alignItems: { md: "center", xs: "left" },
             paddingTop: "5px",
             paddingBottom: "50px",
             display: "flex",
@@ -61,9 +62,12 @@ const Landing = (handleDrawerToggle) => {
           <Typography
             gutterBottom
             variant="h4"
-            textAlign="center"
             component="div"
             paddingBottom="40px"
+            sx={{
+              paddingLeft: { md: "0px", xs: "25px" },
+              textAlign: { sm: "center", xs: "left" },
+            }}
             color="white"
             fontWeight="800"
           >
