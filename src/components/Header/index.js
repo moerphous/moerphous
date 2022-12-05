@@ -13,6 +13,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "@mui/material/Link";
 
 import ScrollToTop from "./ScrollToTop";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -67,6 +68,8 @@ function Header(props) {
                   letterSpacing: ".1rem",
                   color: "#fff",
                   textDecoration: "none",
+
+                  textTransform: "uppercase",
                 }}
               >
                 Moerphous
@@ -85,7 +88,27 @@ function Header(props) {
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: "white", display: "block" }}
                   >
-                    {page}
+                    <Link
+                      underline="none"
+                      color="inherit"
+                      href={`/${page}`.toLowerCase()}
+                      sx={{
+                        fontWeight: 700,
+                        "&:hover": {
+                          cursor: "pointer",
+                          color: "#ff4458",
+                          textDecoration: "none",
+                          borderBottomWidth: "100%",
+                          borderBottomStyle: "solid",
+                          paddingBottom: "1px",
+                          listStyleType: "none",
+                          position: "relative",
+                          bottom: "4px",
+                        },
+                      }}
+                    >
+                      {page}
+                    </Link>
                   </Button>
                 ))}
               </Box>
@@ -173,8 +196,43 @@ function Header(props) {
                   }}
                 >
                   {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                    <MenuItem
+                      key={page}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        backgroundColor: "rgba(33, 36, 40, 1)",
+                        color: "#fff",
+                      }}
+                    >
+                      <Button
+                        textAlign="center"
+                        sx={{
+                          color: "#fff",
+                          "&:hover": { cursor: "pointer", color: "#000" },
+                        }}
+                      >
+                        <Link
+                          underline="none"
+                          color="inherit"
+                          href={`/${page}`.toLowerCase()}
+                          sx={{
+                            fontWeight: 700,
+                            "&:hover": {
+                              cursor: "pointer",
+                              color: "#ff4458",
+                              textDecoration: "none",
+                              borderBottomWidth: "100%",
+                              borderBottomStyle: "solid",
+                              paddingBottom: "1px",
+                              listStyleType: "none",
+                              position: "relative",
+                              bottom: "4px",
+                            },
+                          }}
+                        >
+                          {page}
+                        </Link>
+                      </Button>
                     </MenuItem>
                   ))}
                 </Menu>

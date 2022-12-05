@@ -46,59 +46,59 @@ const Footer = () => (
             >
               Sign up to our newsletter.
             </Box>
-              <Paper
-                component="form"
+            <Paper
+              component="form"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                alignText: "center",
+                width: 200,
+                height: 30,
+                backgroundColor: "rgba(60, 63, 63 ,1)",
+                borderRadius: "12px",
+              }}
+            >
+              <IconButton
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  alignText: "center",
-                  width: 200,
-                  height: 30,
-                  backgroundColor: "rgba(60, 63, 63 ,1)",
-                  borderRadius: "12px",
+                  p: "10px",
+                  color: "white",
+                  "&:disabled": {
+                    cursor: "default",
+                    color: "#fff",
+                  },
+                  "&:hover": {
+                    color: "#fff",
+                  },
                 }}
+                aria-label="menu"
+                disabled
               >
-                <IconButton
-                  sx={{
-                    p: "10px",
-                    color: "white",
-                    "&:disabled": {
-                      cursor: "default",
-                      color: "#fff",
-                    },
-                    "&:hover": {
-                      color: "#fff",
-                    },
-                  }}
-                  aria-label="menu"
-                  disabled
-                >
-                  <EmailIcon />
-                </IconButton>
-                <InputBase
-                  sx={{ ml: 1, flex: 1, fontSize: "12px", color: "white" }}
-                  placeholder="Enter Your Email..."
-                  inputProps={{ "aria-label": "Enter Your Email..." }}
-                />
-                <IconButton
-                  type="button"
-                  sx={{
-                    right: "0px",
-                    p: "3px",
-                    color: "white",
+                <EmailIcon />
+              </IconButton>
+              <InputBase
+                sx={{ ml: 1, flex: 1, fontSize: "12px", color: "white" }}
+                placeholder="Enter Your Email..."
+                inputProps={{ "aria-label": "Enter Your Email..." }}
+              />
+              <IconButton
+                type="button"
+                sx={{
+                  right: "0px",
+                  p: "3px",
+                  color: "white",
+                  backgroundColor: "rgba(255, 50, 63 ,1)",
+                  borderRadius: "2px",
+                  "&:hover": {
+                    color: "#fff",
                     backgroundColor: "rgba(255, 50, 63 ,1)",
-                    borderRadius: "2px",
-                    "&:hover": {
-                      color: "#fff",
-                      backgroundColor: "rgba(255, 50, 63 ,1)",
-                      borderRadius: "1px",
-                    },
-                  }}
-                  aria-label="search"
-                >
-                  <EastIcon sx={{ width: 32 }} />
-                </IconButton>
-              </Paper>
+                    borderRadius: "1px",
+                  },
+                }}
+                aria-label="search"
+              >
+                <EastIcon sx={{ width: 32 }} />
+              </IconButton>
+            </Paper>
           </Box>
         </Grid>
         <Grid item md={3} sm={6}>
