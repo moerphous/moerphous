@@ -95,7 +95,7 @@ const Banner = () => {
               <Link underline="none" color="inherit" href="/explore">
                 <Button
                   sx={{
-                    color: "white",
+                    color: "#fff",
                     backgroundColor: "rgba(255, 50, 63 ,1)",
                     borderRadius: "10px",
                     p: "10px",
@@ -188,7 +188,7 @@ const Banner = () => {
                   sx={{
                     height: 500,
                     width: 500,
-                    top: -150,
+                    top: -151,
                     position: "relative",
                   }}
                   src="./images/banner.png"
