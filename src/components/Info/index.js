@@ -9,7 +9,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
-import FolderCopyIcon from "@mui/icons-material/FolderCopy";
 import SellIcon from "@mui/icons-material/Sell";
 
 const Info = () => {
@@ -29,7 +28,7 @@ const Info = () => {
         backgroundColor: "rgba(33,36,40,1)",
         paddingTop: "50px",
         paddingLeft: { lg: "0px", md: "70px", sm: "10px", xs: "70px" },
-        paddingRight: { lg: "40px", md: "30px" },
+        paddingRight: { lg: "100px", md: "30px" },
         display: "flex",
       }}
     >
@@ -49,16 +48,16 @@ const Info = () => {
           component="div"
           paddingBottom="40px"
           sx={{
-            paddingLeft: { md: "0px", xs: "25px" },
+            paddingLeft: "35px",
             paddingRight: { md: "50px", lg: "0px" },
             textAlign: { sm: "center", xs: "left" },
           }}
           color="white"
           fontWeight="800"
         >
-          Create, Buy or Sell NFTs
+          Create, Buy or Sell NFTs on the XRPL
         </Typography>
-        <Grid container justifyContent="center" spacing={15}>
+        <Grid container justifyContent="center" spacing={18}>
           <Grid item {...grid}>
             <Card
               sx={{
@@ -68,7 +67,7 @@ const Info = () => {
                 borderRadius: "20px",
                 paddingBotton: "50px",
                 display: "flex",
-                width: "300px",
+                width: "310px",
                 height: "200px",
               }}
             >
@@ -101,7 +100,17 @@ const Info = () => {
                     color="white"
                     fontWeight="800"
                   >
-                    Set Up Your Wallet
+                    Connect Your Wallet
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="span"
+                    textAlign="center"
+                    component="div"
+                    color="white"
+                    fontWeight="800"
+                  >
+                    Register to our platform using your wallet.
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -116,7 +125,7 @@ const Info = () => {
                 borderRadius: "20px",
                 paddingBotton: "50px",
                 display: "flex",
-                width: "300px",
+                width: "310px",
                 height: "200px",
               }}
             >
@@ -151,54 +160,15 @@ const Info = () => {
                   >
                     Create Your Collections
                   </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-
-          <Grid item {...grid}>
-            <Card
-              sx={{
-                color: "grey",
-                backgroundColor: "rgba(33,36,40,1)",
-                border: "2px solid green",
-                borderRadius: "20px",
-                paddingBotton: "50px",
-                display: "flex",
-                width: "300px",
-                height: "200px",
-              }}
-            >
-              <CardActionArea alignItems="center">
-                <CardMedia component="Box" height="200">
-                  <FolderCopyIcon
-                    sx={{
-                      cursor: "pointer",
-                      padding: "40px",
-                      paddingTop: "0px",
-                      position: "relative",
-                      height: "60px",
-                      width: "60px",
-                      marginLeft: "70px",
-                      left: "10px",
-                      top: "25px",
-                      "& > *": {
-                        color: "#fff",
-                        opacity: "1",
-                      },
-                    }}
-                  />
-                </CardMedia>
-                <CardContent>
                   <Typography
                     gutterBottom
-                    variant="h6"
+                    variant="span"
                     textAlign="center"
                     component="div"
                     color="white"
                     fontWeight="800"
                   >
-                    Add Your Collections
+                    Use our create page to create your NFTs.
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -214,7 +184,7 @@ const Info = () => {
                 borderRadius: "20px",
                 paddingBotton: "50px",
                 display: "flex",
-                width: "300px",
+                width: "310px",
                 height: "200px",
               }}
             >
@@ -248,6 +218,16 @@ const Info = () => {
                     fontWeight="800"
                   >
                     Sell Your Collections
+                  </Typography>
+                  <Typography
+                    gutterBottom
+                    variant="span"
+                    textAlign="center"
+                    component="div"
+                    color="white"
+                    fontWeight="800"
+                  >
+                    Submit your collections to get listed.
                   </Typography>
                 </CardContent>
               </CardActionArea>

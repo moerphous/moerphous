@@ -3,7 +3,9 @@ import Banner from "../../components/Banner";
 import Authors from "../../components/Authors";
 import Footer from "../../components/Footer";
 import Wallets from "../../components/Wallets";
+import Collections from "../../components/Collections";
 import Info from "../../components/Info";
+
 import Box from "@mui/material/Box";
 
 const Landing = (handleDrawerToggle) => {
@@ -28,6 +30,7 @@ const Landing = (handleDrawerToggle) => {
       </Box>
       <Wallets />
       <Info />
+      <Collections />
       <Authors />
       <Footer />
     </Box>

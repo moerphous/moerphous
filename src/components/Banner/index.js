@@ -83,7 +83,7 @@ const Banner = () => {
             container={firstContainerRef.current}
           >
             <Box component="p">
-              Explore on the world's biggest NFT marketplace.
+              Explore on the world's largest XRPL NFT marketplace.
             </Box>
           </Slide>
           <Slide
