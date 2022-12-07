@@ -52,7 +52,7 @@ const AuthorList = () => {
           color="white"
           fontWeight="800"
         >
-          Top Sellers
+          🚀 Top Sellers
         </Typography>
         <Grid container justifyContent="center" spacing={10}>
           {currentAuthors
