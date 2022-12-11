@@ -12,15 +12,13 @@ const ScrollToTop = (props) => {
   });
 
   const handleClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      "#back-to-top-anchor"
+    const body = document.querySelector("#root");
+    body.scrollIntoView(
+      {
+        behavior: "smooth",
+      },
+      500
     );
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        block: "center",
-      });
-    }
   };
 
   return (

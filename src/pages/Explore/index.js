@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 import CheckboxFilter from "../../components/CheckboxFilter";
 
 const Explore = () => (
-  <div className="greyscheme">
+  <>
     <Header />
     <Box
       component="section"
@@ -33,6 +33,6 @@ const Explore = () => (
       </Container>
     </Box>
     <Footer />
-  </div>
+  </>
 );
 export default Explore;

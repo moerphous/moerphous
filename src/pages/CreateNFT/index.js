@@ -78,7 +78,7 @@ const CreateNFT = () => {
     md: 4,
   };
 
-  const [authorDetails,] = React.useState(
+  const [authorDetails] = React.useState(
     JSON.parse(localStorage.getItem("wallet"))
   );
   const [nftInfo, setNftInfo] = useState({
