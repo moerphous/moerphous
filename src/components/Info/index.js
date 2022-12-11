@@ -26,9 +26,9 @@ const Info = () => {
         alignItems: "center",
         color: "grey",
         backgroundColor: "rgba(33,36,40,1)",
-        paddingTop: "50px",
+        paddingTop: "150px",
         paddingLeft: { lg: "0px", md: "70px", sm: "10px", xs: "70px" },
-        paddingRight: { lg: "100px", md: "30px" },
+        paddingRight: { lg: "260px", md: "30px" },
         display: "flex",
       }}
     >
@@ -46,10 +46,10 @@ const Info = () => {
           gutterBottom
           variant="h4"
           component="div"
-          paddingBottom="40px"
           sx={{
-            paddingLeft: "35px",
-            paddingRight: { md: "50px", lg: "0px" },
+            paddingBottom: "140px",
+            paddingLeft: { sm: "0px", md: "30px", lg: "255px" },
+            paddingRight: { md: "30px", lg: "0px" },
             textAlign: { sm: "center", xs: "left" },
           }}
           color="white"
@@ -57,7 +57,15 @@ const Info = () => {
         >
           Create, Buy or Sell NFTs on the XRPL
         </Typography>
-        <Grid container justifyContent="center" spacing={18}>
+        <Grid
+          container
+          justifyContent="center"
+          spacing={{ lg: 50, md: 20, sm: 20, xs: 20 }}
+          sx={{
+            paddingBottom: "150px",
+            marginRight: { md: "130px", lg: "0px" },
+          }}
+        >
           <Grid item {...grid}>
             <Card
               sx={{
@@ -65,7 +73,6 @@ const Info = () => {
                 backgroundColor: "rgba(33,36,40,1)",
                 border: "2px solid green",
                 borderRadius: "20px",
-                paddingBotton: "50px",
                 display: "flex",
                 width: "310px",
                 height: "200px",
@@ -107,7 +114,7 @@ const Info = () => {
                     variant="span"
                     textAlign="center"
                     component="div"
-                    color="white"
+                    color="#5dea5d"
                     fontWeight="800"
                   >
                     Register to our platform using your wallet.
@@ -165,7 +172,7 @@ const Info = () => {
                     variant="span"
                     textAlign="center"
                     component="div"
-                    color="white"
+                    color="#5dea5d"
                     fontWeight="800"
                   >
                     Use our create page to create your NFTs.
@@ -224,7 +231,7 @@ const Info = () => {
                     variant="span"
                     textAlign="center"
                     component="div"
-                    color="white"
+                    color="#5dea5d"
                     fontWeight="800"
                   >
                     Submit your collections to get listed.

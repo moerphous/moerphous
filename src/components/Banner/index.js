@@ -47,6 +47,7 @@ const Banner = () => {
           display: "flex",
           paddingLeft: "50px",
           paddingRight: "0px",
+          lineHeight: "40px",
           fontSize: "20px",
         }}
       >
@@ -57,6 +58,7 @@ const Banner = () => {
             component="div"
             color="rgba(255, 50, 63 ,1)"
             fontWeight="800"
+            paddingBottom="50px"
             fontSize="25px"
             textTransform="uppercase"
           >
@@ -188,7 +190,7 @@ const Banner = () => {
                   sx={{
                     height: 500,
                     width: 500,
-                    top: -151,
+                    top: { lg: -117, md: -89, sm: -39 },
                     position: "relative",
                   }}
                   src="./images/banner.png"

@@ -24,7 +24,7 @@ const CustomMediaObject = ({
     >
       {avatar && (
         <Box sx={{ alignItems: "center" }}>
-          <Box mr={3} clone>
+          <Box mr={3}>
             {isValidElement(avatar) ? (
               avatar
             ) : (

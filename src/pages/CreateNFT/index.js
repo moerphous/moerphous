@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import { useDropzone } from "react-dropzone";
+import NFTCard from "../../components/NFTCard";
+import { Navigate } from "react-router-dom";
 
 // TODO: move all css objects into index.css file
 
@@ -76,10 +78,14 @@ const CreateNFT = () => {
     md: 4,
   };
 
+  const [authorDetails,] = React.useState(
+    JSON.parse(localStorage.getItem("wallet"))
+  );
   const [nftInfo, setNftInfo] = useState({
-    nftPicture: "",
+    image_url: "",
+    author_url: authorDetails ? authorDetails.author_avatar : "",
+    author_avatar: authorDetails ? authorDetails.author_avatar : "",
     title: "",
-    description: "",
     price: null,
   });
 
@@ -111,7 +117,7 @@ const CreateNFT = () => {
         setNftInfo((prevState) => ({
           ...prevState,
           // eslint-disable-next-line
-          ["nftPicture"]: acceptedFiles[0],
+          ["image_url"]: acceptedFiles[0],
         }));
       },
     });
@@ -142,190 +148,177 @@ const CreateNFT = () => {
   );
   useEffect(() => {
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+    // eslint-disable-next-line
   }, [files]);
-  return (
-    <Box>
-      <Header />
-      <Typography
-        variant="h4"
-        sx={{
-          borderBottom: "1px solid grey",
-          cursor: "default",
-          left: "100px",
-          display: "flex",
-          justifyContent: "center",
-          fontStyle: "italic",
-          paddingTop: "120px",
-          paddingBottom: "40px",
-          color: "white",
-          fontWeight: "800",
-        }}
-      >
-        CREATE NFT
-      </Typography>
 
-      <Box
-        sx={{
-          justifyContent: "center",
-          display: "flex",
-          paddingBottom: "100px",
-        }}
-      >
-        <Grid container justifyContent="center" spacing={5}>
-          <Grid item {...grid}>
-            <Box
-              component="form"
-              autoComplete="off"
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-              onSubmit={handleSubmit}
-            >
+  if (!localStorage.getItem("token")) {
+    return <Navigate to={"/"} replace />;
+  } else {
+    return (
+      <Box>
+        <Header />
+        <Typography
+          variant="h4"
+          sx={{
+            borderBottom: "1px solid grey",
+            cursor: "default",
+            left: "100px",
+            display: "flex",
+            justifyContent: "center",
+            fontStyle: "italic",
+            paddingTop: "120px",
+            paddingBottom: "40px",
+            color: "white",
+            fontWeight: "800",
+          }}
+        >
+          CREATE NFT
+        </Typography>
+
+        <Box
+          sx={{
+            justifyContent: "center",
+            display: "flex",
+            paddingLeft: { lg: "220px", md: "120px", sm: "20px" },
+            paddingBottom: "100px",
+          }}
+        >
+          <Grid container justifyContent="center" spacing={1}>
+            <Grid item {...grid}>
               <Box
-                component="section"
+                component="form"
                 autoComplete="off"
                 sx={{
-                  color: "#fff",
                   display: "flex",
-                  flexDirection: "column",
-                  padding: "20px",
-                  paddingTop: "100px",
-                  width: { md: "720px", sm: "320px" },
-                  textAlign: "start",
+                  justifyContent: "center",
                 }}
                 onSubmit={handleSubmit}
               >
-                <Typography variant="label">NFT Picture</Typography>
-                <div style={thumbsContainer}>
-                  <div {...getRootProps({ style })}>
-                    <input {...getInputProps()} />
-                    {thumbs[0]}
-                  </div>
-                </div>
-                <Typography variant="label">Title</Typography>
-                <TextField
-                  id="title"
-                  type="text"
-                  name="title"
-                  placeholder="NFT Name"
-                  sx={{
-                    marginBottom: "10px",
-                    "& .MuiOutlinedInput-root": {
-                      color: "#fff",
-                      "& > fieldset": {
-                        padding: "15px 30px",
-                        margin: "10px 0",
-                        fontSize: "15px",
-                        border: "solid 2px rgb(219, 219, 219)",
-                        borderRadius: "10px",
-                      },
-                    },
-                  }}
-                  required={true}
-                  value={nftInfo.title}
-                  onChange={handleChange}
-                />
-
-                <Typography variant="label">Description</Typography>
-                <TextField
-                  id="description"
-                  type="text"
-                  name="description"
-                  placeholder="NFT Description"
-                  sx={{
-                    marginBottom: "15px",
-                    "& .MuiOutlinedInput-root": {
-                      color: "#fff",
-                      "& > fieldset": {
-                        height: "50px",
-                        margin: "10px 0",
-                        fontSize: "15px",
-                        border: "solid 2px rgb(219, 219, 219)",
-                        borderRadius: "10px",
-                      },
-                    },
-                  }}
-                  required={true}
-                  value={nftInfo.description}
-                  onChange={handleChange}
-                />
-
-                <Typography variant="label">Price</Typography>
-                <TextField
-                  id="price"
-                  type="text"
-                  name="price"
-                  placeholder="NFT Price (e.g. 1.1514 XRP)"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      color: "#fff",
-                      "& > fieldset": {
-                        padding: "15px 30px",
-                        margin: "10px 0",
-                        fontSize: "15px",
-                        border: "solid 2px rgb(219, 219, 219)",
-                        borderRadius: "10px",
-                      },
-                    },
-                  }}
-                  required={true}
-                  value={nftInfo.price}
-                  onChange={handleChange}
-                />
-
                 <Box
+                  component="section"
+                  autoComplete="off"
                   sx={{
+                    color: "#fff",
                     display: "flex",
-                    justifyContent: "center",
+                    flexDirection: "column",
+                    padding: "20px",
+                    paddingTop: "100px",
+                    width: { md: "720px", sm: "320px" },
+                    textAlign: "start",
                   }}
                 >
-                  <Button
-                    type="submit"
+                  <Typography variant="label">NFT Picture</Typography>
+                  <div style={thumbsContainer}>
+                    <div {...getRootProps({ style })}>
+                      <input {...getInputProps()} />
+                      {thumbs[0]}
+                    </div>
+                  </div>
+                  <Typography variant="label">Title</Typography>
+                  <TextField
+                    id="title"
+                    type="text"
+                    name="title"
+                    placeholder="NFT Name"
                     sx={{
-                      right: "0px",
-                      color: "white",
-                      backgroundColor: "rgba(255, 50, 63 ,1)",
-                      borderRadius: "10px",
-                      p: "10px",
-                      px: "20px",
-                      ml: "20px",
-                      mr: "10px",
-                      fontWeight: 800,
-                      "&:hover": {
+                      marginBottom: "10px",
+                      "& .MuiOutlinedInput-root": {
                         color: "#fff",
-                        borderRadius: "10px",
-                        backgroundColor: "rgba(255, 50, 63 ,1)",
-                        boxShadow: "0 0.5em 0.5em -0.4em red",
-                        transform: "translateY(-0.25em)",
-                      },
-                      marginTop: 5,
-                      cursor: "pointer",
-                      "&:disabled": {
-                        cursor: "default",
-                        backgroundColor: "#656e7b",
-                        color: "#fff",
+                        "& > fieldset": {
+                          padding: "15px 30px",
+                          margin: "10px 0",
+                          fontSize: "15px",
+                          border: "solid 2px rgb(219, 219, 219)",
+                          borderRadius: "10px",
+                        },
                       },
                     }}
-                    disabled={
-                      !nftInfo.nftPicture ||
-                      !nftInfo.title ||
-                      !nftInfo.description ||
-                      !nftInfo.price
-                    }
+                    required={true}
+                    value={nftInfo.title}
+                    onChange={handleChange}
+                  />
+
+                  <Typography variant="label">Price</Typography>
+                  <TextField
+                    id="price"
+                    type="text"
+                    name="price"
+                    placeholder="NFT Price (e.g. 1.1514 XRP)"
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        color: "#fff",
+                        "& > fieldset": {
+                          padding: "15px 30px",
+                          margin: "10px 0",
+                          fontSize: "15px",
+                          border: "solid 2px rgb(219, 219, 219)",
+                          borderRadius: "10px",
+                        },
+                      },
+                    }}
+                    required={true}
+                    value={nftInfo.price}
+                    onChange={handleChange}
+                  />
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
                   >
-                    Create
-                  </Button>
-                  <ContentLoader />
+                    <Button
+                      type="submit"
+                      sx={{
+                        right: "0px",
+                        color: "white",
+                        backgroundColor: "rgba(255, 50, 63 ,1)",
+                        borderRadius: "10px",
+                        p: "10px",
+                        px: "20px",
+                        ml: "20px",
+                        mr: "10px",
+                        fontWeight: 800,
+                        "&:hover": {
+                          color: "#fff",
+                          borderRadius: "10px",
+                          backgroundColor: "rgba(255, 50, 63 ,1)",
+                          boxShadow: "0 0.5em 0.5em -0.4em red",
+                          transform: "translateY(-0.25em)",
+                        },
+                        marginTop: 5,
+                        cursor: "pointer",
+                        "&:disabled": {
+                          cursor: "default",
+                          backgroundColor: "#656e7b",
+                          color: "#fff",
+                        },
+                      }}
+                      disabled={
+                        !nftInfo.image_url || !nftInfo.title || !nftInfo.price
+                      }
+                    >
+                      Mint
+                    </Button>
+                    <ContentLoader />
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+            </Grid>
+
+            <Grid
+              item
+              {...grid}
+              sx={{ marginLeft: { md: "180px", sm: "250px", xs: "90px" } }}
+            >
+              <NFTCard nftInfo={nftInfo} key={1} actions={false} />
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
+        <Footer />
       </Box>
-      <Footer />
-    </Box>
-  );
+    );
+  }
 };
 
 export default CreateNFT;

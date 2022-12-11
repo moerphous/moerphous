@@ -13,7 +13,7 @@ const CustomSweetAlert = ({ content, variant, delay }) => {
       text: content,
       background: "black",
       color: "white",
-      position: "top-end",
+      position: "bottom-end",
       toast: true,
       showCancelButton: false,
       showConfirmButton: false,

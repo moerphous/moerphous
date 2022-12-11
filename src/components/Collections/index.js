@@ -31,7 +31,7 @@ const Collections = () => {
         color: "grey",
         backgroundColor: "rgba(33,36,40,1)",
         paddingTop: "50px",
-        paddingBottom: "50px",
+        paddingBottom: "150px",
         paddingLeft: { md: "0px", sm: "0px", xs: "80px" },
         display: "flex",
       }}
@@ -63,7 +63,10 @@ const Collections = () => {
           container
           justifyContent="center"
           spacing={1}
-          sx={{ paddingLeft: { md: "120px", sm: "80px", xs: "15px" } }}
+          sx={{
+            paddingLeft: { md: "120px", sm: "80px", xs: "15px" },
+            paddingTop: "80px",
+          }}
         >
           <Swiper
             spaceBetween={5}
@@ -90,7 +93,7 @@ const Collections = () => {
             speed={2500}
           >
             {nftsList.map((nftInfo, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide>
                 <Grid item {...grid} sx={{ paddingBottom: "40px" }}>
                   <NFTCard nftInfo={nftInfo} key={index} />
                 </Grid>

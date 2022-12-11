@@ -24,7 +24,7 @@ const AuthorList = () => {
         color: "grey",
         backgroundColor: "rgba(33,36,40,1)",
         paddingTop: "50px",
-        paddingBottom: "50px",
+        paddingBottom: "150px",
         paddingLeft: { md: "0px", sm: "0px", xs: "80px" },
         display: "flex",
       }}
@@ -54,7 +54,12 @@ const AuthorList = () => {
         >
           🚀 Top Sellers
         </Typography>
-        <Grid container justifyContent="center" spacing={10}>
+        <Grid
+          container
+          justifyContent="center"
+          spacing={10}
+          sx={{ paddingTop: "80px" }}
+        >
           {currentAuthors
             ? currentAuthors &&
               currentAuthors.map((author, index) => (
