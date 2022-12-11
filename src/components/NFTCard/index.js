@@ -9,7 +9,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
-const NftCard = ({ nftInfo }) => {
+const NftCard = ({ nftInfo, actions = true }) => {
+  console.log(nftInfo.image_url);
   return (
     <Card
       sx={{
@@ -63,7 +64,7 @@ const NftCard = ({ nftInfo }) => {
                 zIndex: "1",
               }}
             >
-              <Link href={nftInfo.author_url}>
+              <Link href={nftInfo.author_url} target="_blank">
                 <CustomAvatar
                   size={56}
                   src={nftInfo.author_avatar}
@@ -72,21 +73,37 @@ const NftCard = ({ nftInfo }) => {
                 />
               </Link>
             </Box>
-            <Box
-              component="img"
-              sx={{
-                width: "100%",
-                height: "100%",
-                textAlign: "center",
-                display: "flex",
-                alignItems: "center",
-                marginTop: "20px",
-                marginBottom: "20px",
-                justifyContent: "center",
-              }}
-              src={nftInfo.image_url}
-              alt=""
-            />
+            {actions ? (
+              <Box
+                component="img"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                  justifyContent: "center",
+                }}
+                src={nftInfo.image_url}
+                alt=""
+              />
+            ) : (
+              <Box
+                component="img"
+                sx={{
+                  width: "100%",
+                  height: "170px",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "20px",
+                  justifyContent: "center",
+                }}
+                src={nftInfo.image_url.preview}
+              />
+            )}
           </Box>
         </CardMedia>
         <CardContent>
@@ -101,10 +118,11 @@ const NftCard = ({ nftInfo }) => {
             <Box
               sx={{
                 position: "absolute",
-                bottom: "45px",
+                bottom: actions ? "45px" : "35px",
               }}
+              component="h3"
             >
-              <h3>{nftInfo.title}</h3>
+              {nftInfo.title}
             </Box>
             {nftInfo.status === "has_offers" ? (
               <Box
@@ -138,66 +156,72 @@ const NftCard = ({ nftInfo }) => {
                 marginBottom: "10px",
               }}
             >
-              <Box
-                component="button"
-                sx={{
-                  cursor: "pointer",
-                  right: "0px",
-                  color: "white",
-                  backgroundColor: "rgba(255, 50, 63 ,1)",
-                  borderRadius: "10px",
-                  border: "1px",
-                  p: "5px",
-                  px: "15px",
-                  mr: "10px",
-                  fontWeight: 800,
-                  "&:hover": {
-                    color: "#fff",
-                    borderRadius: "10px",
+              {actions ? (
+                <Box
+                  component="button"
+                  sx={{
+                    cursor: "pointer",
+                    right: "0px",
+                    color: "white",
                     backgroundColor: "rgba(255, 50, 63 ,1)",
-                    boxShadow: "0 0.5em 0.5em -0.4em red",
-                    transform: "translateY(-0.25em)",
-                  },
-                }}
-              >
-                {nftInfo.status === "on_auction" ? "Place Bid" : "Buy Now"}
-              </Box>
+                    borderRadius: "10px",
+                    border: "1px",
+                    p: "5px",
+                    px: "15px",
+                    mr: "10px",
+                    fontWeight: 800,
+                    "&:hover": {
+                      color: "#fff",
+                      borderRadius: "10px",
+                      backgroundColor: "rgba(255, 50, 63 ,1)",
+                      boxShadow: "0 0.5em 0.5em -0.4em red",
+                      transform: "translateY(-0.25em)",
+                    },
+                  }}
+                >
+                  {nftInfo.status === "on_auction" ? "Place Bid" : "Buy Now"}
+                </Box>
+              ) : (
+                <></>
+              )}
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: "absolute",
-              fontSize: "18px",
-              fontWeight: 800,
-              color: "#fff",
-              bottom: "23px",
-              right: "10px",
-            }}
-          >
-            <ThumbUpIcon
-              sx={{
-                mr: 2,
-                height: "50px",
-                my: "-18px",
-                "& > *": {
-                  color: "rgba(255, 50, 63 ,1)",
-                  "&:hover": {
-                    color: "rgba(255, 50, 63 ,1)",
-                    transform: "translateY(-0.25em)",
-                  },
-                },
-              }}
-            />
+          {actions ? (
             <Box
-              component="span"
               sx={{
-                fontSize: "16px",
+                position: "absolute",
+                fontSize: "18px",
                 fontWeight: 800,
+                color: "#fff",
+                bottom: "23px",
+                right: "10px",
               }}
             >
-              {nftInfo.likes}
+              <ThumbUpIcon
+                sx={{
+                  mr: 2,
+                  height: "50px",
+                  my: "-18px",
+                  "& > *": {
+                    color: "rgba(255, 50, 63 ,1)",
+                    "&:hover": {
+                      color: "rgba(255, 50, 63 ,1)",
+                      transform: "translateY(-0.25em)",
+                    },
+                  },
+                }}
+              />
+              <Box
+                component="span"
+                sx={{
+                  fontSize: "16px",
+                  fontWeight: 800,
+                }}
+              >
+                {nftInfo.likes}
+              </Box>
             </Box>
-          </Box>
+          ) : null}
         </CardContent>
       </CardActionArea>
     </Card>

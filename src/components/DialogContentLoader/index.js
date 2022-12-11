@@ -15,12 +15,17 @@ const PageLoader = () => {
         height: "100%",
         display: "flex",
         backgroundColor: "grey",
+        color: "white",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <CircularProgress />
+      <CircularProgress
+        sx={{
+          color: "white",
+        }}
+      />
     </Box>
   );
 };

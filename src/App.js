@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { setAuthors } from "./redux/authorsReducer/actions";
 import { setNfts } from "./redux/nftsReducer/actions";
+import { JWTAuth } from "./api/AuthAPI";
 
 const App = () => {
   const Explore = lazy(() => import("./pages/Explore"));
@@ -122,7 +123,11 @@ const App = () => {
         },
       ])
     );
-  }, [dispatch]);
+    if (localStorage.getItem("wallet")) {
+      dispatch(JWTAuth.getAuthWallet());
+    }
+    // eslint-disable-next-line
+  }, [dispatch, localStorage.getItem("wallet")]);
 
   return (
     <Suspense>

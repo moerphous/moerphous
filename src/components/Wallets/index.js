@@ -24,7 +24,7 @@ const Wallets = () => {
         color: "grey",
         backgroundColor: "rgba(33,36,40,1)",
         borderTop: "2px solid grey",
-        paddingTop: "50px",
+        paddingTop: "80px",
         paddingLeft: { md: "0px", sm: "10px", xs: "100px" },
         display: "flex",
       }}
@@ -43,7 +43,7 @@ const Wallets = () => {
           gutterBottom
           variant="h4"
           component="div"
-          paddingBottom="40px"
+          paddingTop="80px"
           sx={{
             paddingLeft: { md: "0px", xs: "25px" },
             paddingRight: { md: "50px", lg: "50px" },
@@ -54,7 +54,12 @@ const Wallets = () => {
         >
           Wallets
         </Typography>
-        <Grid container justifyContent="center" spacing={10}>
+        <Grid
+          container
+          justifyContent="center"
+          spacing={10}
+          sx={{ paddingTop: "100px" }}
+        >
           <Grid item {...grid}>
             <Card
               sx={{

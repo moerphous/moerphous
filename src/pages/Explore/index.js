@@ -18,6 +18,7 @@ const Explore = () => (
         color: "grey",
         backgroundColor: "rgba(33,36,40,1)",
         paddingTop: "50px",
+        marginLeft: { lg: "-350px", md: "-110px", sm: "-100px", xs: "-100px" },
       }}
     >
       <Container maxWidth="lg">
