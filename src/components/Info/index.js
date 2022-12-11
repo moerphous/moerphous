@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import SellIcon from "@mui/icons-material/Sell";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const Info = () => {
   const grid = {
@@ -42,21 +43,27 @@ const Info = () => {
           flexDirection: "column",
         }}
       >
-        <Typography
-          gutterBottom
-          variant="h4"
-          component="div"
-          sx={{
-            paddingBottom: "140px",
-            paddingLeft: { sm: "0px", md: "30px", lg: "255px" },
-            paddingRight: { md: "30px", lg: "0px" },
-            textAlign: { sm: "center", xs: "left" },
-          }}
-          color="white"
-          fontWeight="800"
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          animateOut="animate__fadeInOut"
+          animateOnce={true}
         >
-          Create, Buy or Sell NFTs on the XRPL
-        </Typography>
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="div"
+            sx={{
+              paddingBottom: "140px",
+              paddingLeft: { sm: "0px", md: "30px", lg: "255px" },
+              paddingRight: { md: "30px", lg: "0px" },
+              textAlign: { sm: "center", xs: "left" },
+            }}
+            color="white"
+            fontWeight="800"
+          >
+            Create, Buy or Sell NFTs on the XRPL
+          </Typography>
+        </AnimationOnScroll>
         <Grid
           container
           justifyContent="center"
@@ -67,178 +74,196 @@ const Info = () => {
           }}
         >
           <Grid item {...grid}>
-            <Card
-              sx={{
-                color: "grey",
-                backgroundColor: "rgba(33,36,40,1)",
-                border: "2px solid green",
-                borderRadius: "20px",
-                display: "flex",
-                width: "310px",
-                height: "200px",
-              }}
+            <AnimationOnScroll
+              animateIn="animate__fadeInUp"
+              animateOut="animate__fadeInOut"
+              animateOnce={true}
             >
-              <CardActionArea alignItems="center">
-                <CardMedia component="Box" height="200">
-                  <AccountBalanceWalletIcon
-                    sx={{
-                      cursor: "pointer",
-                      padding: "40px",
-                      paddingTop: "0px",
-                      position: "relative",
-                      height: "60px",
-                      width: "60px",
-                      marginLeft: "70px",
-                      left: "10px",
-                      top: "25px",
-                      "& > *": {
-                        color: "#fff",
-                        opacity: "1",
-                      },
-                    }}
-                  />
-                </CardMedia>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    textAlign="center"
-                    component="div"
-                    color="white"
-                    fontWeight="800"
-                  >
-                    Connect Your Wallet
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="span"
-                    textAlign="center"
-                    component="div"
-                    color="#5dea5d"
-                    fontWeight="800"
-                  >
-                    Register to our platform using your wallet.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+              <Card
+                sx={{
+                  color: "grey",
+                  backgroundColor: "rgba(33,36,40,1)",
+                  border: "2px solid green",
+                  borderRadius: "20px",
+                  display: "flex",
+                  width: "310px",
+                  height: "200px",
+                }}
+              >
+                <CardActionArea alignItems="center">
+                  <CardMedia component="Box" height="200">
+                    <AccountBalanceWalletIcon
+                      sx={{
+                        cursor: "pointer",
+                        padding: "40px",
+                        paddingTop: "0px",
+                        position: "relative",
+                        height: "60px",
+                        width: "60px",
+                        marginLeft: "70px",
+                        left: "10px",
+                        top: "25px",
+                        "& > *": {
+                          color: "#fff",
+                          opacity: "1",
+                        },
+                      }}
+                    />
+                  </CardMedia>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      textAlign="center"
+                      component="div"
+                      color="white"
+                      fontWeight="800"
+                    >
+                      Connect Your Wallet
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="span"
+                      textAlign="center"
+                      component="div"
+                      color="#5dea5d"
+                      fontWeight="800"
+                    >
+                      Register to our platform using your wallet.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </AnimationOnScroll>
           </Grid>
           <Grid item {...grid}>
-            <Card
-              sx={{
-                color: "grey",
-                backgroundColor: "rgba(33,36,40,1)",
-                border: "2px solid green",
-                borderRadius: "20px",
-                paddingBotton: "50px",
-                display: "flex",
-                width: "310px",
-                height: "200px",
-              }}
+            <AnimationOnScroll
+              animateIn="animate__fadeInUp"
+              animateOut="animate__fadeInOut"
+              animateOnce={true}
             >
-              <CardActionArea alignItems="center">
-                <CardMedia component="Box" height="200">
-                  <LibraryAddIcon
-                    sx={{
-                      cursor: "pointer",
-                      padding: "40px",
-                      paddingTop: "0px",
-                      position: "relative",
-                      height: "60px",
-                      width: "60px",
-                      marginLeft: "70px",
-                      left: "10px",
-                      top: "25px",
-                      "& > *": {
-                        color: "#fff",
-                        opacity: "1",
-                      },
-                    }}
-                  />
-                </CardMedia>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    textAlign="center"
-                    component="div"
-                    color="white"
-                    fontWeight="800"
-                  >
-                    Create Your Collections
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="span"
-                    textAlign="center"
-                    component="div"
-                    color="#5dea5d"
-                    fontWeight="800"
-                  >
-                    Use our create page to create your NFTs.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+              <Card
+                sx={{
+                  color: "grey",
+                  backgroundColor: "rgba(33,36,40,1)",
+                  border: "2px solid green",
+                  borderRadius: "20px",
+                  paddingBotton: "50px",
+                  display: "flex",
+                  width: "310px",
+                  height: "200px",
+                }}
+              >
+                <CardActionArea alignItems="center">
+                  <CardMedia component="Box" height="200">
+                    <LibraryAddIcon
+                      sx={{
+                        cursor: "pointer",
+                        padding: "40px",
+                        paddingTop: "0px",
+                        position: "relative",
+                        height: "60px",
+                        width: "60px",
+                        marginLeft: "70px",
+                        left: "10px",
+                        top: "25px",
+                        "& > *": {
+                          color: "#fff",
+                          opacity: "1",
+                        },
+                      }}
+                    />
+                  </CardMedia>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      textAlign="center"
+                      component="div"
+                      color="white"
+                      fontWeight="800"
+                    >
+                      Create Your Collections
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="span"
+                      textAlign="center"
+                      component="div"
+                      color="#5dea5d"
+                      fontWeight="800"
+                    >
+                      Use our create page to create your NFTs.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </AnimationOnScroll>
           </Grid>
 
           <Grid item {...grid}>
-            <Card
-              sx={{
-                color: "grey",
-                backgroundColor: "rgba(33,36,40,1)",
-                border: "2px solid green",
-                borderRadius: "20px",
-                paddingBotton: "50px",
-                display: "flex",
-                width: "310px",
-                height: "200px",
-              }}
+            <AnimationOnScroll
+              animateIn="animate__fadeInUp"
+              animateOut="animate__fadeInOut"
+              animateOnce={true}
             >
-              <CardActionArea alignItems="center">
-                <CardMedia component="Box" height="200">
-                  <SellIcon
-                    sx={{
-                      cursor: "pointer",
-                      padding: "40px",
-                      paddingTop: "0px",
-                      position: "relative",
-                      height: "60px",
-                      width: "60px",
-                      marginLeft: "70px",
-                      left: "10px",
-                      top: "25px",
-                      "& > *": {
-                        color: "#fff",
-                        opacity: "1",
-                      },
-                    }}
-                  />
-                </CardMedia>
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h6"
-                    textAlign="center"
-                    component="div"
-                    color="white"
-                    fontWeight="800"
-                  >
-                    Sell Your Collections
-                  </Typography>
-                  <Typography
-                    gutterBottom
-                    variant="span"
-                    textAlign="center"
-                    component="div"
-                    color="#5dea5d"
-                    fontWeight="800"
-                  >
-                    Submit your collections to get listed.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+              <Card
+                sx={{
+                  color: "grey",
+                  backgroundColor: "rgba(33,36,40,1)",
+                  border: "2px solid green",
+                  borderRadius: "20px",
+                  paddingBotton: "50px",
+                  display: "flex",
+                  width: "310px",
+                  height: "200px",
+                }}
+              >
+                <CardActionArea alignItems="center">
+                  <CardMedia component="Box" height="200">
+                    <SellIcon
+                      sx={{
+                        cursor: "pointer",
+                        padding: "40px",
+                        paddingTop: "0px",
+                        position: "relative",
+                        height: "60px",
+                        width: "60px",
+                        marginLeft: "70px",
+                        left: "10px",
+                        top: "25px",
+                        "& > *": {
+                          color: "#fff",
+                          opacity: "1",
+                        },
+                      }}
+                    />
+                  </CardMedia>
+                  <CardContent>
+                    <Typography
+                      gutterBottom
+                      variant="h6"
+                      textAlign="center"
+                      component="div"
+                      color="white"
+                      fontWeight="800"
+                    >
+                      Sell Your Collections
+                    </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="span"
+                      textAlign="center"
+                      component="div"
+                      color="#5dea5d"
+                      fontWeight="800"
+                    >
+                      Submit your collections to get listed.
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </AnimationOnScroll>
           </Grid>
         </Grid>
       </Container>

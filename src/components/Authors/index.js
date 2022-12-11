@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const AuthorList = () => {
   const grid = {
@@ -39,21 +40,27 @@ const AuthorList = () => {
           flexDirection: "column",
         }}
       >
-        <Typography
-          gutterBottom
-          variant="h4"
-          component="div"
-          paddingBottom="40px"
-          sx={{
-            paddingLeft: { md: "0px", xs: "25px" },
-            paddingRight: { md: "50px", xs: "25px" },
-            textAlign: { sm: "center", xs: "left" },
-          }}
-          color="white"
-          fontWeight="800"
+        <AnimationOnScroll
+          animateIn="animate__fadeInUp"
+          animateOut="animate__fadeInOut"
+          animateOnce={true}
         >
-          🚀 Top Sellers
-        </Typography>
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="div"
+            paddingBottom="40px"
+            sx={{
+              paddingLeft: { md: "0px", xs: "25px" },
+              paddingRight: { md: "50px", xs: "25px" },
+              textAlign: { sm: "center", xs: "left" },
+            }}
+            color="white"
+            fontWeight="800"
+          >
+            🚀 Top Sellers
+          </Typography>
+        </AnimationOnScroll>
         <Grid
           container
           justifyContent="center"
@@ -64,7 +71,13 @@ const AuthorList = () => {
             ? currentAuthors &&
               currentAuthors.map((author, index) => (
                 <Grid item {...grid}>
-                  <AuthorCell author={author} />
+                  <AnimationOnScroll
+                    animateIn="animate__fadeInUp"
+                    animateOut="animate__fadeInOut"
+                    animateOnce={true}
+                  >
+                    <AuthorCell author={author} />
+                  </AnimationOnScroll>
                 </Grid>
               ))
             : null}
