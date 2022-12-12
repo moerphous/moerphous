@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import { useDropzone } from "react-dropzone";
 import NFTCard from "../../components/NFTCard";
-import { mintNFT } from "../../api/NFTsAPI";
+import { mintNFT } from "../../api/NftsAPI";
 import { Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 

@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { setAuthors } from "./redux/authorsReducer/actions";
+import { fetchMyNfts } from "./api/NftsAPI";
 import { setNfts } from "./redux/nftsReducer/actions";
 import { JWTAuth } from "./api/AuthAPI";
 
@@ -10,10 +11,12 @@ const App = () => {
   const Explore = lazy(() => import("./pages/Explore"));
   const Landing = lazy(() => import("./pages/Landing"));
   const CreateNFT = lazy(() => import("./pages/CreateNFT"));
+  const MyNFTs = lazy(() => import("./pages/MyNFTs"));
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchMyNfts());
     // TODO: Change fake db to api get authors
     dispatch(
       setNfts([
@@ -135,6 +138,7 @@ const App = () => {
         <Route exact path="/" element={<Landing />} />
         <Route exact path="/explore" element={<Explore />} />
         <Route exact path="/create-nft" element={<CreateNFT />} />
+        <Route exact path="/my-nfts" element={<MyNFTs />} />
         <Route exact path="/home" element={<Navigate to={"/"} replace />} />
       </Routes>
     </Suspense>

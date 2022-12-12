@@ -9,8 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 
-const NftCard = ({ nftInfo, actions = true }) => {
-  console.log(nftInfo.image_url);
+const NftCard = ({ nftInfo, actions = true, fetchedData = false }) => {
   return (
     <Card
       sx={{
@@ -74,6 +73,22 @@ const NftCard = ({ nftInfo, actions = true }) => {
               </Link>
             </Box>
             {actions ? (
+              <Box
+                component="img"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: "20px",
+                  marginBottom: "20px",
+                  justifyContent: "center",
+                }}
+                src={nftInfo.image_url}
+                alt=""
+              />
+            ) : fetchedData ? (
               <Box
                 component="img"
                 sx={{

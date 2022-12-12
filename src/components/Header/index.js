@@ -37,7 +37,7 @@ import Fab from "@mui/material/Fab";
 import EditPersonalInformation from "../EditInfo";
 
 const pages = ["Home", "Explore"];
-const settings = ["View Profile", "Edit Profile", "Log out"];
+const settings = ["View Profile", "Edit Profile", "My NFTs", "Log out"];
 
 function Header(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -93,6 +93,9 @@ function Header(props) {
         setEdit(true);
         break;
       case 2:
+        navigate("/my-nfts");
+        break;
+      case 3:
         dispatch(JWTAuth.onLogout());
         break;
       default:
