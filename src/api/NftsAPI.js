@@ -3,7 +3,7 @@ import {
   fetchStart,
   fetchSuccess,
 } from "../redux/commonReducer/actions";
-import { setMynfts } from "../redux/nftsReducer/actions";
+import { setMynfts, setNfts } from "../redux/nftsReducer/actions";
 import { axiosJson } from "./AxiosConfig";
 
 import { Server } from "../utils";
@@ -62,3 +62,24 @@ export const fetchMyNfts = () => {
     }
   };
 };
+
+export const fetchAllNfts = () => {
+  return (dispatch) => {
+    dispatch(fetchStart());
+      axJson
+        .get(`${Server.endpoint}/nft/get-all`)
+        .then(({ data }) => {
+          if (data.status_code === 200) {
+            dispatch(setNfts(data.results));
+            dispatch(fetchSuccess());
+          } else {
+            dispatch(fetchError(data.message));
+          }
+        })
+        .catch(function (error) {
+          dispatch(fetchError(""));
+        });
+  };
+};
+
+

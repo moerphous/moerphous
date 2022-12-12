@@ -5,23 +5,22 @@ import CustomAvatar from "../CustomAvatar";
 
 const AuthorCell = ({ author }) => {
   const backgroundColors = ["#1735E3", "green", "blue"];
-
   return (
     <CustomMediaObject
       avatar={
         <CustomAvatar
           size={56}
-          src={author.profile_picture}
-          alt={author.first_name}
+          src={author.profile_picture ? author.profile_picture : "Anonymous"}
+          alt={author.first_name ? author.first_name : "Anonymous"}
         />
       }
-      title={author.first_name}
+      title={author.first_name ? author.first_name : "Anonymous"}
       titleProps={{
         variant: "h4",
         fontSize: 14,
         color: "white",
       }}
-      subTitle={`${author.author_sales} XRP`}
+      // TODO: subTitle={`${author.author_sales} XRP`}
       subTitleProps={{
         variant: "body2",
         fontSize: 12,
@@ -59,7 +58,7 @@ const AuthorCell = ({ author }) => {
               backgroundColor: backgroundColors[Math.floor(Math.random() * 3)],
               borderRadius: "16px",
             }}
-          >{`3 nfts`}</Box>
+          >{`${author.nb_items} nfts`}</Box>
         </Box>
       }
     />

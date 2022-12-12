@@ -99,7 +99,7 @@ const Collections = () => {
                 </Grid>
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper>    
         </Grid>
       </Container>
     </Box>
