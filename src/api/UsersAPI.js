@@ -6,6 +6,7 @@ import {
 import { setCurrentUser } from "../redux/authReducer/actions";
 import { axiosJson, axiosFiles } from "./AxiosConfig";
 
+import { setAuthors } from "../redux/authorsReducer/actions";
 import { Server } from "../utils";
 import { JWTAuth } from "./AuthAPI";
 
@@ -69,5 +70,27 @@ export const uploadPicture = (image) => {
           dispatch(fetchError(""));
         });
     }
+  };
+};
+
+export const fetchAllAuthors = () => {
+  return (dispatch) => {
+    dispatch(fetchStart());
+    axJson.defaults.headers.common["Authorization"] =
+      "Bearer " + localStorage.getItem("token");
+    axJson
+      .get(`${Server.endpoint}/wallet/all`)
+      .then(({ data }) => {
+        console.log(data)
+        if (data.status_code === 200) {
+          dispatch(fetchSuccess());
+          dispatch(setAuthors(data.wallets))
+        } else {
+          dispatch(fetchError(data.message));
+        }
+      })
+      .catch(function (error) {
+        dispatch(fetchError(""));
+      });
   };
 };

@@ -77,7 +77,7 @@ const NftCard = ({ nftInfo, actions = true, fetchedData = false }) => {
                 component="img"
                 sx={{
                   width: "100%",
-                  height: "100%",
+                  height: "170px",
                   textAlign: "center",
                   display: "flex",
                   alignItems: "center",
@@ -93,7 +93,7 @@ const NftCard = ({ nftInfo, actions = true, fetchedData = false }) => {
                 component="img"
                 sx={{
                   width: "100%",
-                  height: "100%",
+                  height: "170px",
                   textAlign: "center",
                   display: "flex",
                   alignItems: "center",

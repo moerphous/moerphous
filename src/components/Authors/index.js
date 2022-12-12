@@ -80,7 +80,7 @@ const AuthorList = () => {
                   </AnimationOnScroll>
                 </Grid>
               ))
-            : null}
+            : null}      
         </Grid>
       </Container>
     </Box>

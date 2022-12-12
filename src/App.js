@@ -2,9 +2,8 @@ import React, { lazy, Suspense, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { setAuthors } from "./redux/authorsReducer/actions";
-import { fetchMyNfts } from "./api/NftsAPI";
-import { setNfts } from "./redux/nftsReducer/actions";
+import { fetchAllAuthors } from "./api/UsersAPI";
+import { fetchMyNfts, fetchAllNfts } from "./api/NftsAPI";
 import { JWTAuth } from "./api/AuthAPI";
 
 const App = () => {
@@ -18,114 +17,8 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchMyNfts());
     // TODO: Change fake db to api get authors
-    dispatch(
-      setNfts([
-        {
-          id: 1,
-          title: "NFT",
-          url: "./images/author.jpeg",
-          status: "on_auction",
-          likes: "4",
-          price: "3",
-          bid_url: "",
-          bid: "1",
-          max_bid: "20",
-          end_date: "Jan 25, 2023 3:30",
-          author_url: "./images/author.jpeg",
-          author_avatar: "./images/author.jpeg",
-          image_url: "./images/background.jpg",
-        },
-        {
-          id: 2,
-          title: "NFT",
-          url: "./images/author.jpeg",
-          status: "has_offers",
-          likes: "4",
-          price: "3",
-          bid_url: "",
-          bid: "1",
-          max_bid: "20",
-          end_date: "Jan 25, 2023 3:30",
-          author_url: "./images/author.jpeg",
-          author_avatar: "./images/author.jpeg",
-          image_url: "./images/background.jpg",
-        },
-        {
-          id: 3,
-          title: "NFT",
-          url: "./images/author.jpeg",
-          status: "has_offers",
-          likes: "4",
-          price: "3",
-          bid_url: "",
-          bid: "1",
-          max_bid: "20",
-          author_url: "./images/author.jpeg",
-          author_avatar: "./images/author.jpeg",
-          image_url: "./images/background1.jpg",
-        },
-        {
-          id: 4,
-          title: "NFT",
-          url: "./images/author.jpeg",
-          status: "has_offers",
-          likes: "4",
-          price: "3",
-          bid_url: "",
-          bid: "1",
-          max_bid: "20",
-          author_url: "./images/author.jpeg",
-          author_avatar: "./images/author.jpeg",
-          image_url: "./images/background1.jpg",
-        },
-      ])
-    );
-    dispatch(
-      setAuthors([
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-        {
-          first_name: "Mahmoud",
-          profile_picture: "./images/author.jpeg",
-          author_sales: "4",
-          nb_items: "3",
-        },
-      ])
-    );
+    dispatch(fetchAllNfts());
+    dispatch(fetchAllAuthors());
     if (localStorage.getItem("wallet")) {
       dispatch(JWTAuth.getAuthWallet());
     }
