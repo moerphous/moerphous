@@ -3,6 +3,7 @@ import {
   fetchStart,
   fetchSuccess,
 } from "../redux/commonReducer/actions";
+import { setMynfts } from "../redux/nftsReducer/actions";
 import { axiosJson } from "./AxiosConfig";
 
 import { Server } from "../utils";
@@ -28,6 +29,29 @@ export const mintNFT = (nftInfo) => {
         .then(({ data }) => {
           if (data.status_code === 200) {
             dispatch(fetchSuccess(data.message));
+          } else {
+            dispatch(fetchError(data.message));
+          }
+        })
+        .catch(function (error) {
+          dispatch(fetchError(""));
+        });
+    }
+  };
+};
+
+export const fetchMyNfts = () => {
+  return (dispatch) => {
+    dispatch(fetchStart());
+    if (localStorage.getItem("wallet")) {
+      axJson.defaults.headers.common["Authorization"] =
+        "Bearer " + localStorage.getItem("token");
+      axJson
+        .get(`${Server.endpoint}/nft/get-wallet-nfts`)
+        .then(({ data }) => {
+          if (data.status_code === 200) {
+            dispatch(setMynfts(data.results));
+            dispatch(fetchSuccess());
           } else {
             dispatch(fetchError(data.message));
           }

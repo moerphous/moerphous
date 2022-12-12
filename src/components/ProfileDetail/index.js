@@ -6,12 +6,12 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Typography from "@mui/material/Typography";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import PersonIcon from "@mui/icons-material/Person";
+import SavingsIcon from "@mui/icons-material/Savings";
+import InfoIcon from "@mui/icons-material/Info";
 import "../style.css";
 
 const ProfileDetail = ({ currentUser, user }) => {
   const [, setAnchorEl] = React.useState(null);
-  console.log(user);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -41,12 +41,22 @@ const ProfileDetail = ({ currentUser, user }) => {
         </ListItem>
         <ListItem>
           <ListItemIcon className="list-icon-root">
-            <PersonIcon sx={{ color: "#fff" }} />
+            <InfoIcon sx={{ color: "#fff" }} />
           </ListItemIcon>
           <ListItemText
             className="text-color"
             primary="Bio"
             secondary={user.bio}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemIcon className="list-icon-root">
+            <SavingsIcon sx={{ color: "#fff" }} />
+          </ListItemIcon>
+          <ListItemText
+            className="text-color"
+            primary="Balance"
+            secondary={`${user.balance} XRP`}
           />
         </ListItem>
       </List>

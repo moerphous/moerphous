@@ -12,3 +12,4 @@ export const SET_AUTHORS_RANKING = "SET_AUTHORS_RANKING";
 export const SET_SELECTED_AUTHOR = "SET_SELECTED_AUTHOR";
 
 export const SET_NFTS = "SET_NFTS";
+export const SET_MY_NFTS = "SET_MY_NFTS";
