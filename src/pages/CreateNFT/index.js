@@ -9,7 +9,9 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import { useDropzone } from "react-dropzone";
 import NFTCard from "../../components/NFTCard";
+import { mintNFT } from "../../api/NFTsAPI";
 import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // TODO: move all css objects into index.css file
 
@@ -72,6 +74,9 @@ const img = {
 };
 
 const CreateNFT = () => {
+  const [disableLoader, setDisableLoader] = React.useState(false);
+
+  const dispatch = useDispatch();
   const grid = {
     xs: 12,
     sm: 12,
@@ -83,6 +88,7 @@ const CreateNFT = () => {
   );
   const [nftInfo, setNftInfo] = useState({
     image_url: "",
+    base64_image_url: "",
     author_url: authorDetails ? authorDetails.author_avatar : "",
     author_avatar: authorDetails ? authorDetails.author_avatar : "",
     title: "",
@@ -91,6 +97,8 @@ const CreateNFT = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setDisableLoader(true);
+    dispatch(mintNFT(nftInfo));
   };
 
   const handleChange = (e) => {
@@ -119,6 +127,16 @@ const CreateNFT = () => {
           // eslint-disable-next-line
           ["image_url"]: acceptedFiles[0],
         }));
+        const tempFile = acceptedFiles[0];
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          setNftInfo((prevState) => ({
+            ...prevState,
+            // eslint-disable-next-line
+            ["base64_image_url"]: event.target.result.split(",")[1],
+          }));
+        };
+        reader.readAsDataURL(tempFile);
       },
     });
 
@@ -295,12 +313,15 @@ const CreateNFT = () => {
                         },
                       }}
                       disabled={
-                        !nftInfo.image_url || !nftInfo.title || !nftInfo.price
+                        !nftInfo.image_url ||
+                        !nftInfo.title ||
+                        !nftInfo.price ||
+                        disableLoader
                       }
                     >
                       Mint
+                      <ContentLoader />
                     </Button>
-                    <ContentLoader />
                   </Box>
                 </Box>
               </Box>
