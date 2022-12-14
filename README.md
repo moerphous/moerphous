@@ -65,3 +65,13 @@ To deploy the client, you will need to set the following environment variable th
 ## Deployment
 
 [![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/moerphous/moerphous)
+
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/moerphous/moerphous)
+
+## Deploy locally with Compose v2
+
+Navigate to [the server repository](https://github.com/moerphous/moerphous-server) and follow the instructions listed in [this section](https://github.com/moerphous/moerphous-server#deploy-locally-with-compose-v2) to run both the client and the server in docker containers.
+
+## License
+
+This project and the accompanying materials are made available under the terms and conditions of the [`MIT LICENSE`](https://github.com/moerphous/moerphous/blob/main/LICENSE).
