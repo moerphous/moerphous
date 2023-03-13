@@ -27,7 +27,7 @@
     "sweetalert2": "^11.6.15",
     "sweetalert2-react-content": "^5.0.7",
     "swiper": "^8.4.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts --max_old_space_size=4096 start",
